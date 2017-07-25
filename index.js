@@ -6,6 +6,8 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const flash = require('connect-flash')
+const passport = require('./config/passport')
+const MongoStore = require('connect-mongo')(session)
 
 // connecting mongoose
 const url = 'mongodb://localhost:27017/project-2'
@@ -33,12 +35,16 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 app.use(session({
+  store: new MongoStore({
+    url: 'mongodb://localhost:27017/project-2'
+  }),
   secret: 'secret',
   resave: false,
   saveUninitialized: true
-  // we're missing store: newMongoStore
 }))
 app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
 // setup for files project needs to require
 // require ROUTERS here
@@ -53,6 +59,11 @@ app.get('/about', function (req, res) {
   res.render('about')
 })
 app.use('/users', usersRoute)
+
+app.get('/logout', function (req, res) {
+  req.logout()
+  res.redirect('/')
+})
 
 // non public paths
 

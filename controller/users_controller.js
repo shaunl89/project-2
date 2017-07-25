@@ -1,7 +1,7 @@
 const User = require('../models/User')
 
 function register (req, res) {
-  res.render('users/new', {
+  res.render('users/signup', {
     flash: req.flash('errors')
   })
 }
@@ -17,14 +17,10 @@ function create (req, res) {
     if (err) {
       // return res.send(err)
       req.flash('errors', err.message)
-      return res.redirect('/users/new')
+      return res.redirect('/users/signup')
     }
 
-    res.send({ // change this to redirect users/login
-      message: 'New user created!',
-      name: req.body.user.name,
-      email: req.body.user.email
-    })
+    res.redirect('/users/login')
   })
 }
 
