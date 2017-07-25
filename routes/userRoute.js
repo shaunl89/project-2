@@ -14,12 +14,14 @@ router.get('/login', function (req, res) {
   res.render('users/login')
 })
 
-router.get('/profile', usersController.show)
-
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/users/profile',
   failureRedirect: '/users/login'
 }))
 
+// non public route
+router.get('/profile', usersController.authenticatedUser, usersController.show)
+
+router.get('/logout', usersController.logout)
 
 module.exports = router

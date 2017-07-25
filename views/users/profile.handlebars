@@ -1,14 +1,15 @@
 {{#if user}}
 
 <li>
-  <a href="/logout">Logout</a>
+  <a href="/users/logout">Logout</a>
 </li>
 
-{{#each user as |user|}}
+{{!-- {{#each user as |user|}} --}}
+{{!-- not required as findOne only returns one user unlike find which returns an array of users thus requiring loop --}}
 
 <h2>Hello {{ user.name }}!</h2>
 
-{{/each}}
+{{!-- {{/each}} --}}
 
 <h2>Welcome to your profile!</h2>
 

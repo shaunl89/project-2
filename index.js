@@ -60,11 +60,6 @@ app.get('/about', function (req, res) {
 })
 app.use('/users', usersRoute)
 
-app.get('/logout', function (req, res) {
-  req.logout()
-  res.redirect('/')
-})
-
 // non public paths
 
 // opening the port

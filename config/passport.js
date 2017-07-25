@@ -18,7 +18,7 @@ passport.use(
       usernameField: 'user[email]',
       passwordField: 'user[password]',
       passReqToCallback: true
-    },
+        },
     localVerify
   )
 )
