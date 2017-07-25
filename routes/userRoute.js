@@ -14,13 +14,12 @@ router.get('/login', function (req, res) {
   res.render('users/login')
 })
 
-router.get('/profile', function (req, res) {
-  res.render('users/profile')
-})
+router.get('/profile', usersController.show)
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/users/profile',
   failureRedirect: '/users/login'
 }))
+
 
 module.exports = router

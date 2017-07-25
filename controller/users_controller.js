@@ -25,12 +25,21 @@ function create (req, res) {
 }
 
 function show (req, res) {
-  User.findOne({
-    id:req.body.user.name
+  User.find({
+    '_id': req.user
+  }, function (err, user) {
+    if (err) {
+      return res.send(err)
+    } else {
+      res.render('users/profile', {
+        user: user
+      })
+    }
   })
 }
 
 module.exports = {
   register,
-  create
+  create,
+  show
 }
