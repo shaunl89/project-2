@@ -23,7 +23,11 @@ const userSchema = new Schema({
     required: [true, 'Please type your password'],
     minlength: [8, 'Password must be between 8 and 99 characters'],
     maxlength: [99, 'Password must be between 8 and 99 characters']
-  }
+  },
+  journals: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Journal'
+  }]
 })
 
 userSchema.pre('save', function(next) {

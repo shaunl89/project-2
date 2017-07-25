@@ -6,11 +6,36 @@
 
 {{!-- {{#each user as |user|}} --}}
 {{!-- not required as findOne only returns one user unlike find which returns an array of users thus requiring loop --}}
+{{!-- {{/each}} --}}
 
 <h2>Hello {{ user.name }}!</h2>
 
-{{!-- {{/each}} --}}
-
 <h2>Welcome to your profile!</h2>
+
+{{!-- form to create new journals --}}
+<h3>Create New Journal</h3>
+
+<form action="/users/profile" method="post">
+<div class="form-group">
+  <label>Title:
+    <input type="text" name="journal[name]" placeholder="Journal Name">
+  </label>
+  <button>Create</button>
+</div>
+
+
+</form>
+<br>
+
+{{!-- display the user's journals --}}
+<label>
+  Select an existing journal
+  <select name="journal[id]">
+    {{#each journal as |journal|}}
+    <option value="{{ journal.id }}">{{ journal.name}}</option>
+    {{/each}}
+</select>
+</label>
+
 
 {{/if}}

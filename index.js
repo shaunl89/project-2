@@ -49,6 +49,7 @@ app.use(passport.session())
 // setup for files project needs to require
 // require ROUTERS here
 const usersRoute = require('./routes/userRoute')
+const journalsRoute = require('./routes/journalRoute')
 
 // setup for project routes
 // paths (public / non public?)
@@ -58,7 +59,7 @@ app.get('/', function (req, res) {
 app.get('/about', function (req, res) {
   res.render('about')
 })
-app.use('/users', usersRoute)
+app.use('/users', usersRoute, journalsRoute)
 
 // non public paths
 
