@@ -24,6 +24,12 @@ function create (req, res) {
   })
 }
 
+function show (req, res) {
+  User.findOne({
+    id:req.body.user.name
+  })
+}
+
 module.exports = {
   register,
   create
