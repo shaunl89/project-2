@@ -28,14 +28,21 @@
 <br>
 
 {{!-- display the user's journals --}}
-<label>
+<div>
   Select an existing journal
   <select name="journal[id]">
-    {{#each journal as |journal|}}
-    <option value="{{ journal.id }}">{{ journal.name}}</option>
-    {{/each}}
-</select>
-</label>
 
+  {{#each user.journals as |journals|}}
+
+    <option value="{{ journal.id }}">
+      {{ journals.name }}
+    </option>
+
+    {{/each}}
+
+</select>
+<button>Edit</button>
+
+</div>
 
 {{/if}}

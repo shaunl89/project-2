@@ -27,8 +27,9 @@ function create (req, res) {
 function show (req, res) {
   User.findOne({
     _id: req.user
-  },
-  function (err, user) {
+  })
+  .populate('journals')
+  .exec(function (err, user) {
     if (err) {
       return res.send(err)
     } else {
