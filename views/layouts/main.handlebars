@@ -4,32 +4,34 @@
     <meta charset="utf-8">
     <title>project-2</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/pure.css">
+    {{!-- <link rel="stylesheet" href="/css/pure.css"> --}}
   </head>
 
   <body>
-    <div class="sidebar pure-u-1">
+    <div class="splash-container">
 
-    <h1>Memento</h1>
+      <h1 class="brand-title">Memento</h1>
 
-    {{#if user}}
-    <li>
-      <a href="/users/profile">Profile</a>
-    </li>
+      {{#if user}}
+      <li>
+        <a href="/users/profile">Profile</a>
+      </li>
 
-    <li>
-      <a href="/users/logout">Logout</a>
-    </li>
+      <li>
+        <a href="/users/logout">Logout</a>
+      </li>
 
-    {{/if}}
+      {{/if}}
 
-    {{#unless user}}
-    <li><a href="/">Home</a></li>
-    {{/unless}}
-  </div>
+      {{#unless user}}
+      <li><a href="/">Home</a></li>
+      {{/unless}}
+    </div>
 
-    {{{ body }}}
+      {{{ body }}}
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/js/script.js" charset="utf-8"></script>

@@ -1,34 +1,50 @@
 {{!-- form to create new journals --}}
 
-<h3>Create New Journal</h3>
 {{!-- flash error if user did not input title --}}
 {{ flash }}
-<form action="/journals" method="post">
-  <div class="form-group">
-    <label>Title:
-      <input type="text" name="journal[name]" placeholder="Journal Name">
-    </label>
-    <br>
-    <label>Location:
+<h2>Create New</h2>
+<form class="pure-form pure-form-aligned"action="/journals" method="post">
+  <fieldset>
+    <div class="pure-control-group">
+      <label>Title:</label>
+      <input type="text" name="journal[name]" placeholder="Entry Name">
+      <span class="pure-form-message-inline">This is a required field.</span>
+    </div>
+
+    <div class="pure-control-group">
+      <label>Location:</label>
       <input type="text" name="journal[location]" placeholder="Location">
-    </label>
-    <br>
-    <label>Text:
+    </div>
+
+    <div class="pure-control-group">
+      <label>Text:</label>
       <textarea type="text" name="journal[text]" placeholder="Your text"></textarea>
-    </label>
-    <br>
-    <button>Create</button>
-  </div>
+    </div>
+
+    <div class="pure-controls">
+      <button class="pure-button pure-button-primary">Create</button>
+    </div>
+  </fieldset>
 </form>
 
 <div id='map2'></div>
 
 {{!-- display the user's journals --}}
 <div>
-  <h2>Select an existing journal</h2>
-  {{#each journals as |journals|}}
-    <li><a href='/journals/{{journals.id}}'>{{ journals.name }}</a></li>
-  {{/each}}
+    <table class="pure-table">
+      <thead>
+        <tr>
+          <h2>Select an existing entry</h2>
+        </tr>
+      </thead>
+      {{#each journals as |journals|}}
+      <tr>
+        <td>
+          <a href='/journals/{{journals.id}}'>{{ journals.name }}</a>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_KEY}}&language=en&callback=initMap" type="text/javascript">

@@ -2,27 +2,29 @@
 
 {{ flash }}
 
-<form action="/users/signup" method="post">
-  <div class="form-group">
-    <label>
-      Name:
-      <input type="text" name="user[name]" placeholder="Your name here">
-    </label>
-  </div>
+<form class="pure-form pure-form-aligned" action="/users/signup" method="post">
+  <fieldset>
+    <div class="pure-control-group">
+      <label>Name:</label>
+        <input type="text" name="user[name]" placeholder="Your name here">
+        <span class="pure-form-message-inline">This is a required field.</span>
+    </div>
 
-  <div class="form-group">
-    <label>
-      Email:
-      <input type="text" name="user[email]" placeholder="e.g. john.doe@gmail.com">
-    </label>
-  </div>
+    <div class="pure-control-group">
+      <label>Email:</label>
+        <input type="text" name="user[email]" placeholder="e.g. john.doe@gmail.com">
+        <span class="pure-form-message-inline">This is a required field.</span>
+    </div>
 
-  <div class="form-group">
-    <label>
-      Password:
+    <div class="pure-control-group">
+      <label>Password:</label>
+
       <input type="password" name="user[password]" placeholder="min. 8 char">
-    </label>
-  </div>
+      <span class="pure-form-message-inline">This is a required field.</span>
+    </div>
 
-  <button>Submit</button>
+    <div class="pure-controls">
+      <button class="pure-button pure-button-primary">Submit</button>
+    </div>
+  </fieldset>
 </form>

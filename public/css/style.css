@@ -12,6 +12,11 @@ a:focus {
     text-decoration: underline;
 }
 
+header {
+  margin: 0 100px;
+}
+
 body {
-  margin: 20;
+  min-width: 500px;
+  max-width: 700px;
 }

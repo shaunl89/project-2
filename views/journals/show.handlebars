@@ -1,39 +1,58 @@
-<h1>Journal: {{journal.name}}</h1>
+<div class="pure-g">
 
-<h2>Where it happened: </h2>
-<p>{{journal.location}}</p>
+  <div class="pure-u-1-3">
+    <h2>Title:</h2>
+    <p> {{journal.name}}</p>
+  </div>
 
-<h3>Memories:</h3>
-<p>{{journal.text}}</p>
+  <div class="pure-u-1-3">
+    <h2>Location: </h2>
+    <p>{{journal.location}}</p>
+  </div>
 
-<h2>Update your stuff:</h2>
+  <div class="pure-u-1-3">
+    <h2>Memories:</h2>
+    <p>{{journal.text}}</p>
+  </div>
+
+</div>
+
+
+<h2 class="pure-u-1">Update this Entry:</h2>
 
 {{ flash }}
 
-<form action="/journals/{{journal.id}}?_method=PUT" method="post">
-  <div class="form-group">
-    <label>Title:
+<form class="pure-form pure-form-aligned" action="/journals/{{journal.id}}?_method=PUT" method="post">
+  <fieldset>
+    <div class="pure-control-group">
+      <label>Title:</label>
       <input type="text" name="update[name]" placeholder="Journal Name">
-    </label>
+    </div>
 
-    <br>
-    <label>Location:
+    <div class="pure-control-group">
+      <label>Location:</label>
       <input type="text" name="update[location]" placeholder="Location">
-    </label>
+    </div>
 
-    <br>
-    <label>Text:
+    <div class="pure-control-group">
+      <label>Text:</label>
       <textarea type="text" name="update[text]" placeholder="Your text">
       </textarea>
-    </label>
-    <br>
-    <button>Update</button>
-  </div>
+    </div>
 
+      <div class="pure-controls">
+        <button class="pure-button pure-button-primary">Update</button>
+      </div>
+  </fieldset>
 </form>
 
-<form action="/journals/{{journal.id}}?_method=delete" method="post">
-  <button>Delete</button> <= It's Irreversible!!
+<form class="pure-form pure-form-aligned" action="/journals/{{journal.id}}?_method=delete" method="post">
+  <fieldset>
+    <div class="pure-controls">
+      <button class="pure-button pure-button-primary">Delete</button>
+      <span class="pure-form-message-inline">Irreversible</span>
+    </div>
+  </fieldset>
 </form>
 
 <div id='map2'></div>

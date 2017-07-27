@@ -2,19 +2,23 @@
 
 {{ flash }}
 
-<form action="/users/login" method="post">
-<div class="form-group">
-  <label>Email:
-    <input type="text" name="user[email]" placeholder="e.g. john.doe@gmail.com">
-  </label>
-</div>
+<form class="pure-form pure-form-aligned" action="/users/login" method="post">
+  <fieldset>
 
-<div class="form-group">
-  <label>Password:
-    <input type="password" name="user[password]" placeholder="Enter your password">
-  </label>
-</div>
+    <div class="pure-control-group">
+      <label>Email:</label>
+        <input type="text" name="user[email]" placeholder="e.g. john.doe@gmail.com">
+    </div>
 
-<button>Login</button>
+    <div class="pure-control-group">
+      <label>Password:</label>
+        <input type="password" name="user[password]" placeholder="Enter your password">
+    </div>
+
+    <div class="pure-controls">
+      <button class="pure-button pure-button-primary">Login</button>
+    </div>
+
+  </fieldset>
 
 </form>
