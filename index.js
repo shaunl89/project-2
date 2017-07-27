@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride('_method'))
 app.use(session({
   store: new MongoStore({
-    url: 'mongodb://localhost:27017/project-2'
+    url: process.env.MONGODB_URI
   }),
   secret: 'secret',
   resave: false,
