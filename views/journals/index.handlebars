@@ -1,0 +1,31 @@
+{{!-- form to create new journals --}}
+
+<h3>Create New Journal</h3>
+<form action="/journals" method="post">
+  <div class="form-group">
+    <label>Title:
+      <input type="text" name="journal[name]" placeholder="Journal Name">
+    </label>
+    <br>
+    <label>Location:
+      <input type="text" name="journal[location]" placeholder="Location">
+    </label>
+    <br>
+    <label>Text:
+      <textarea type="text" name="journal[text]" placeholder="Your text">
+      </textarea>
+    </label>
+    <br>
+    <button>Create</button>
+  </div>
+  <div id='map'>
+  </div>
+</form>
+
+{{!-- display the user's journals --}}
+<div>
+  <h2>Select an existing journal</h2>
+  {{#each journals as |journals|}}
+    <li><a href='/journals/{{journals.id}}'>{{ journals.name }}</a></li>
+  {{/each}}
+</div>

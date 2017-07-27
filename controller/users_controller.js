@@ -20,24 +20,13 @@ function create (req, res) {
       return res.redirect('/users/signup')
     }
 
-    res.redirect('/users/login')
+    res.redirect('/users/profile')
   })
 }
 
 function show (req, res) {
-  User.findOne({
-    _id: req.user
-  })
-  .populate('journals')
-  .exec(function (err, user) {
-    if (err) {
-      return res.send(err)
-    } else {
-      console.log(user)
-      res.render('users/profile', {
-        user: user
-      })
-    }
+  res.render('users/profile', {
+    user: req.user
   })
 }
 
@@ -62,7 +51,7 @@ function authenticatedUser (req, res, next) {
 module.exports = {
   register,
   create,
-  logout,
   show,
+  logout,
   authenticatedUser
 }

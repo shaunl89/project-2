@@ -8,11 +8,11 @@ const passport = require('../config/passport')
 // all url paths already begin with '/users'
 router.get('/signup', usersController.register)
 
-router.post('/signup', usersController.create)
-
 router.get('/login', function (req, res) {
   res.render('users/login')
 })
+
+router.post('/signup', usersController.create)
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/users/profile',

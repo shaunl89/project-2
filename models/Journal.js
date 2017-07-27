@@ -5,6 +5,12 @@ const journalSchema = new Schema({
   name: {
     type: String
     // required: [true, 'Please give a title']
+  },
+  location: {
+    type: String
+  },
+  text: {
+    type: String
   }
   // entries: [{
   //   type: Schema.Types.ObjectId,

@@ -52,16 +52,14 @@ const usersRoute = require('./routes/userRoute')
 const journalsRoute = require('./routes/journalRoute')
 
 // setup for project routes
-// paths (public / non public?)
 app.get('/', function (req, res) {
   res.render('home')
 })
 app.get('/about', function (req, res) {
   res.render('about')
 })
-app.use('/users', usersRoute, journalsRoute)
-
-// non public paths
+app.use('/users', usersRoute)
+app.use('/journals', journalsRoute)
 
 // opening the port
 const port = process.env.PORT || 6660
