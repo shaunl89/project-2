@@ -1,5 +1,5 @@
 function initMap () {
-  var latLng = new google.maps.LatLng(1.3521, 103.8198)
+  var latLng = new google.maps.LatLng(41.84201, -89.485937)
   var map = new google.maps.Map(document.getElementById('map2'), {
     zoom: 18,
     center: latLng
@@ -20,3 +20,5 @@ function initMap () {
 }
 
 initMap()
+// 41.84201, -89.485937
+// 1.3521, 103.8198 Singapore
