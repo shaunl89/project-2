@@ -20,8 +20,7 @@
     <br>
     <button>Create</button>
   </div>
-  <div id='map'>
-  </div>
+  <div id='map2'></div>
 </form>
 
 {{!-- display the user's journals --}}
@@ -31,3 +30,6 @@
     <li><a href='/journals/{{journals.id}}'>{{ journals.name }}</a></li>
   {{/each}}
 </div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_KEY}}&language=en&callback=initMap">
+</script>

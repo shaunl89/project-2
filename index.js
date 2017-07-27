@@ -1,3 +1,5 @@
+require('dotenv').config() // gotta yarn add dotenv first
+
 // requiring all modules installed
 const mongoose = require('mongoose')
 const express = require('express')
@@ -47,6 +49,9 @@ app.use(session({
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
+app.locals = {
+  GOOGLE_MAPS_KEY: process.env.GOOGLE_MAPS_KEY
+}
 
 // setup for files project needs to require
 // require ROUTERS here

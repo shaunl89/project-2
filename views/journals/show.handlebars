@@ -6,10 +6,8 @@
 <h3>Memories:</h3>
 <p>{{journal.text}}</p>
 
-{{!-- update and destroy form --}}
-{{!-- ?_method=delete --}}
 <h2>Update your stuff:</h2>
-
+{{ flash }}
 <form action="/journals/{{journal.id}}?_method=PUT" method="post">
   <div class="form-group">
     <label>Title:
@@ -29,9 +27,15 @@
     <br>
     <button>Update</button>
   </div>
+
+
 </form>
 
 <form action="/journals/{{journal.id}}?_method=delete" method="post">
-  Delete your journal (It's irreversible!):
-<button>Delete</button>
+  <button>Delete</button> <= It's Irreversible!!
 </form>
+
+<div id='map2'></div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAPS_KEY}}&language=en&callback=initMap">
+</script>

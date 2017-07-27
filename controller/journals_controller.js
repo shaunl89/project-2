@@ -40,7 +40,8 @@ function show (req, res) {
           console.log('this clicked journal', journal)
           res.render('journals/show', {
             journal: journal,
-            user: user
+            user: user,
+            flash: req.flash('errors') // this flash isnt working
           })
         }
       })
@@ -92,22 +93,25 @@ function update (req, res) {
   console.log('this is the update function')
   console.log(req.params)
   console.log(req.body)
+  var opts = { runValidators: true }
   Journal
   .findOneAndUpdate({
     _id: req.params.id
-  }, {
-    $set: {
-      name: req.body.update.name,
-      location: req.body.update.location,
-      text: req.body.update.text
-    }
-  }, function (err) {
-    if (err) {
-      return res.send(err)
-    } else {
-      res.redirect('/journals')
-    }
-  })
+  },
+    {
+      $set: {
+        name: req.body.update.name,
+        location: req.body.update.location,
+        text: req.body.update.text
+      }
+    }, opts, function (err) {
+      if (err) {
+        req.flash('errors', err.message)
+      // return res.send(err)
+      } else {
+        res.redirect('/journals')
+      }
+    })
 }
 
 module.exports = {
