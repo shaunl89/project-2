@@ -13,7 +13,7 @@ const MongoStore = require('connect-mongo')(session)
 const methodOverride = require('method-override')
 
 // connecting mongoose
-const url = 'mongodb://localhost:27017/project-2'
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/project-2'
 
 mongoose.Promise = global.Promise
 mongoose.connect(url, {
