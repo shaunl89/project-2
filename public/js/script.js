@@ -18,3 +18,5 @@ function initMap () {
     })
   }
 }
+
+initMap()
