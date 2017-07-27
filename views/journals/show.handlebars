@@ -1,3 +1,37 @@
-<h1>{{journal.name}}</h1>
-<h2>{{journal.text}}</h2>
+<h1>Journal: {{journal.name}}</h1>
+
+<h2>Where it happened: </h2>
 <p>{{journal.location}}</p>
+
+<h3>Memories:</h3>
+<p>{{journal.text}}</p>
+
+{{!-- update and destroy form --}}
+{{!-- ?_method=delete --}}
+<h2>Update your stuff:</h2>
+
+<form action="/journals/{{journal.id}}?_method=PUT" method="post">
+  <div class="form-group">
+    <label>Title:
+      <input type="text" name="update[name]" placeholder="Journal Name">
+    </label>
+
+    <br>
+    <label>Location:
+      <input type="text" name="update[location]" placeholder="Location">
+    </label>
+
+    <br>
+    <label>Text:
+      <textarea type="text" name="update[text]" placeholder="Your text">
+      </textarea>
+    </label>
+    <br>
+    <button>Update</button>
+  </div>
+</form>
+
+<form action="/journals/{{journal.id}}?_method=delete" method="post">
+  Delete your journal (It's irreversible!):
+<button>Delete</button>
+</form>

@@ -1,6 +1,8 @@
 {{!-- form to create new journals --}}
 
 <h3>Create New Journal</h3>
+{{!-- flash error if user did not input title --}}
+{{ flash }}
 <form action="/journals" method="post">
   <div class="form-group">
     <label>Title:

@@ -8,6 +8,7 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const passport = require('./config/passport')
 const MongoStore = require('connect-mongo')(session)
+const methodOverride = require('method-override')
 
 // connecting mongoose
 const url = 'mongodb://localhost:27017/project-2'
@@ -34,6 +35,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+app.use(methodOverride('_method'))
 app.use(session({
   store: new MongoStore({
     url: 'mongodb://localhost:27017/project-2'
