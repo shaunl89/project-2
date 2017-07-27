@@ -7,7 +7,9 @@
 <p>{{journal.text}}</p>
 
 <h2>Update your stuff:</h2>
+
 {{ flash }}
+
 <form action="/journals/{{journal.id}}?_method=PUT" method="post">
   <div class="form-group">
     <label>Title:
@@ -27,7 +29,6 @@
     <br>
     <button>Update</button>
   </div>
-
 
 </form>
 
